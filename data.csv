@@ -1,6 +1,6 @@
-Title,Headings,Image search query,Categories,Tags
-Przekierowanie 301,,programming,,
+Title,Headings,Image search query,Categories,Tags,PublishDate
+Przekierowanie 301,,programming,,,2023-12-31T12:00:00
 Przekierowanie 302,"Czym jest przekierowanie 302?
 Czym różni się przekierowanie 302 od 301?
 Kiedy stosować przekierowanie 302?
-W jaki sposób ustawić przekierowanie 302 w pliku .htaccess?",programming,,
+W jaki sposób ustawić przekierowanie 302 w pliku .htaccess?",programming,,2024-01-05T08:30:00
