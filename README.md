@@ -103,6 +103,7 @@ W pliku CSV możesz uzupełnić:
 * Title - lista tytułów, dla których teksty mają być napisane, każdy tytuł podaj w osobnym wierszu. Lista tytułów wystarczy żeby narzędzie działało poprawnie, pozostałe kolumny są opcjonalne. Nie ma limitu jeżeli chodzi o liczbę tekstów, ogranicza Cię jedynie $ w OpenAI.
 
 * Headings - jeżeli chcesz żeby tekst był napisany według konkretnych nagłówków to możesz podać je w tej kolumnie. Każdy nagłówek powinien być podany w nowej linii. Musisz pamiętać o tym, że jeżeli tekst jest pisany według nagłówków to każdy nagłówek jest osobnym tekstem, a nie kontynuacją poprzednich akapitów.
+* Keywords - lista słów kluczowych, pod które tekst ma być zoptymalizowany. Słowa kluczowe oddziel przecinkami lub nową linią.
 
 * Image search query - jeżeli chcesz żebyss do wpisu zostało dodane zdjęcie to możesz podać frazę, która posłuży do znalezienia zdjęcia na pixabay. Czyli jeżeli wpiszesz tam “office” to jako zdjęcie zostanie wybrany losowy obraz z [https://pixabay.com/images/search/office/](https://pixabay.com/images/search/office/)
 

@@ -7,11 +7,14 @@ const mainFunction = async (post, summary, options) => {
   const { wordpress } = options;
   const image = post["Image search query"] == "" ? false : true;
   const headings = post["Headings"].split("\n");
+  const keywords = post["Keywords"]
+    ? post["Keywords"].split(/[,\n]/).map((k) => k.trim()).filter(Boolean)
+    : [];
   const publishDate = post["PublishDate"] || null;
   const content =
     headings[0] !== ""
-      ? await contentWithHeadings(post["Title"], headings)
-      : await createContent(post["Title"]);
+      ? await contentWithHeadings(post["Title"], headings, keywords)
+      : await createContent(post["Title"], false, keywords);
   if (content.error) {
     console.log(content.statusText);
     summary.push({

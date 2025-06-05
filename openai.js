@@ -1,7 +1,7 @@
 import { Configuration, OpenAIApi } from "openai";
 import { keys } from "./keys.js";
 
-const createContent = async (title, headings = false) => {
+const createContent = async (title, headings = false, keywords = []) => {
   if (!headings) {
     console.log(`piszę: ${title}`);
   }
@@ -10,9 +10,12 @@ const createContent = async (title, headings = false) => {
     apiKey: keys.AI_KEY,
   });
   const openai = new OpenAIApi(configuration);
+  const kw = keywords.length ? ` Słowa kluczowe: ${keywords.join(", ")}.` : "";
   const prompt = headings
-    ? `Napisz dwa akapity na temat "${title}".`
-    : `Napisz zoptymalizowany pod SEO artykuł blogowy na temat "${title}". Tekst powinien zawierać 3 nagłówki, dla każdego nagłówka napisz 2 akapity. Tekst ma być sformatowany do HTML, nagłówki umieść w <h2>, a akapity w <p>`;
+    ? `Napisz dwa akapity na temat "${title}".` + kw
+    : `Napisz zoptymalizowany pod SEO artykuł blogowy na temat "${title}".` +
+      ` Tekst powinien zawierać 3 nagłówki, dla każdego nagłówka napisz 2 akapity.` +
+      ` Tekst ma być sformatowany do HTML, nagłówki umieść w <h2>, a akapity w <p>.` + kw;
   let failedRequests = 0;
   const maxFails = 4;
   const retry = async (ms) =>
@@ -53,10 +56,10 @@ const createContent = async (title, headings = false) => {
   return response;
 };
 
-const contentWithHeadings = async (title, headings) => {
+const contentWithHeadings = async (title, headings, keywords = []) => {
   console.log(`piszę: ${title}`);
 
-  const arr = headings.map((item) => createContent(item, true));
+  const arr = headings.map((item) => createContent(item, true, keywords));
   const formatText = (item) => {
     return item
       .split("\n")
