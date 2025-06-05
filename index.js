@@ -7,6 +7,7 @@ const mainFunction = async (post, summary, options) => {
   const { wordpress } = options;
   const image = post["Image search query"] == "" ? false : true;
   const headings = post["Headings"].split("\n");
+  const publishDate = post["PublishDate"] || null;
   const content =
     headings[0] !== ""
       ? await contentWithHeadings(post["Title"], headings)
@@ -35,7 +36,8 @@ const mainFunction = async (post, summary, options) => {
         content,
         imageId,
         categories,
-        tags
+        tags,
+        publishDate ? publishDate : null
       );
       console.log(`Wpis utworzony: ${createdPost.link}`);
       summary.push({

@@ -24,7 +24,7 @@ async function uploadImage(path, title) {
   return createdImage.id;
 }
 
-async function createPost(title, content, imageId, categories, tags) {
+async function createPost(title, content, imageId, categories, tags, publishDate) {
   const createdPost = await fetch(`${keys.WP_ENDPOINT}posts`, {
     method: "POST",
     headers: {
@@ -38,7 +38,8 @@ async function createPost(title, content, imageId, categories, tags) {
       title: title,
       content: content,
       featured_media: imageId ? imageId : null,
-      status: "publish",
+      date: publishDate,
+      status: publishDate ? "future" : "publish",
       categories: categories,
       tags: tags,
     }),
