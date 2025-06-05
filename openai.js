@@ -18,16 +18,16 @@ const createContent = async (title, headings = false) => {
   const retry = async (ms) =>
     new Promise((resolve) => {
       openai
-        .createCompletion({
-          model: "text-davinci-003",
-          prompt: prompt,
+        .createChatCompletion({
+          model: "gpt-4",
+          messages: [{ role: "user", content: prompt }],
           temperature: 1,
           max_tokens: 3700,
           top_p: 0,
           frequency_penalty: headings ? 0.5 : 0.3,
           presence_penalty: headings ? 1 : 0.7,
         })
-        .then((res) => resolve(res.data.choices[0].text))
+        .then((res) => resolve(res.data.choices[0].message.content))
         .catch((error) => {
           if (
             (error.response.status === 429 || error.response.status === 500) &&

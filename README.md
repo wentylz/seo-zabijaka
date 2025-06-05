@@ -1,5 +1,5 @@
 # SEO ZABIJAKA
-**Narzędzie nie jest dłużej wspierane i działa na przestarzałej wersji GPT. Projekt został przeniesiony i rozbudowany do wersji webowej. Jeżeli chcesz pisać treści z wykorzystaniem gpt-4 to zapraszam na https://copymate.app :)**
+**Narzędzie korzysta z modelu GPT-4.**
 
 **Spis treści**
 
@@ -23,7 +23,7 @@
 
 Narzędzie łączy w sobie 3 różne API:
 
-* OpenAI API - pay-as-you-go, służy do tworzenia treści (gpt-3, davinci-3)
+* OpenAI API - pay-as-you-go, służy do tworzenia treści (gpt-4)
 * Pixabay API - free, służy do pobrania zdjęcia
 * Wordpess API - free, służy do opublikowania treści i zdjęcia na Wordpressie
 
